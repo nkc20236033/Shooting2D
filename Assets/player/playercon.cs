@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class playercon : MonoBehaviour
 {Vector3 dir = Vector3.zero;//移動方向を保存
-    
 
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +25,22 @@ public class playercon : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, -9f, 9f);
         pos.y = Mathf.Clamp(pos.y, -5f, 5f);
         transform.position = pos;
+
+
+        //アニメーションの設定
+        if(dir.y==0) 
+        {
+            anim.Play("player");
+        }
+        else if (dir.y==1) 
+        {
+            anim.Play("playerL");
+        }
+        else if (dir.y == -1)
+        {
+            anim.Play("playerR");
+        }
+
 
     }
 }
