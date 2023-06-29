@@ -12,7 +12,6 @@ public class gamedirec : MonoBehaviour
     public Image timegauge;//タイムゲージを表示
     // Start is called before the first frame update
 
-
     public Text shotLabel;  // 弾の強さ表示テキストオブジェクト保存
 
     public GameObject itemPre; // アイテムプレハブ保存
@@ -28,14 +27,17 @@ public class gamedirec : MonoBehaviour
     void Start()
     {
         kyori = 0;
-        LastTime = 100f;//残り時間６０秒
+        LastTime = 100f;//残り時間10０秒
         PC = GameObject.Find("tomato").GetComponent<playercon>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        int s = PC.ShotLevel;
+        shotLabel.text = "ShotLv" + s;
         kyori++;
+        if(kyori<0)kyori = 0;
         kyoriLabel.text = "獲得点" + kyori.ToString("D6") + "Pt";
         //残り時間を減らす処理
         LastTime -= Time.deltaTime;
