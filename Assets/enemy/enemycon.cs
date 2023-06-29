@@ -26,8 +26,8 @@ public class enemycon : MonoBehaviour
         rad = Time.time;
         shotTime = 0;
 
-        seClip = audioClip = Resources.Load<AudioClip>("bomb");
-        sepos = new Vector3(0, 0, -10);
+        seClip = audioClip = Resources.Load<AudioClip>("nc49514");
+        sepos = new Vector3(0, 0, -15);
 
 
     }
